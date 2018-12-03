@@ -1,0 +1,119 @@
+<div classs="video-container">
+    <div class="video-description"  [@fadeInOut]="description ? 'in' : 'out'">
+        <hr>
+        <div class="content" [@fadeInOut]="description ? 'long' : 'short'">
+            我們在寫網站一定會使用到Session
+            今天就跟大家分享自製微型 Asp.net Session
+            分析Session->實作Session->使用Session
+            
+            在實作之前您必須先了解甚麼是Session
+            網路上一大堆介紹Session文章在此我就不多介紹
+            或可以點進之前小弟的介紹文來簡單了解 SessionID.cookie,Session傻傻分不清楚
+          </div>
+     </div>
+  <div class="video-author">
+      <div id="author">
+        <i class="fa fa-times cancel"></i>
+        <div id="video-title">
+          <span>測試用影片喔</span><i class="fa fa-chevron-down" (click)="description = !description"></i>
+        </div>
+        <img src="/assets/001ec949fb1b193cb2a747.jpg" /><span>chenHungTzu003912</span>
+      </div>
+  </div>
+  <video class="video-player" #video autoplay loop>
+    <source src="https://amd-ssl.cdn.turner.com/cnn/big/ads/2018/11/13/22LKFS_ICONSIAM_30SEC_Eng_1280x720.mp4" type="video/mp4">
+  </video>
+  <div class="video-social" [hidden]='show'>
+    <div class='social-summary'>
+            224,261個觀看次數 122個留言
+    </div>
+    <div class='social-icons'>
+      <i class="fa fa-heart-o isolute"></i>
+      <i class="fa fa-comments isolute"></i>
+      <i class="fa fa-reply isolute"></i>
+      <i class="fa fa-ellipsis-h isolute"></i>
+      <button class='btn btn-search btn-sm' (click)="show = !show"><i class="fa fa-angle-up" aria-hidden="true"></i>瀏覽</button>
+    </div>
+    <div class='video-ctrl'>
+
+      <div *ngIf='!videoRef.paused'> <i class="fa fa-stop" (click)="videoRef.pause()" aria-hidden="true"></i></div>
+      <div *ngIf='videoRef.paused'><i class="fa fa-play" (click)="videoRef.play()" aria-hidden="true"></i></div>
+
+      <div class="progress">
+        <div #progress class="progress-bar">
+          <div text-right></div>
+        </div>
+      </div>
+      <div class='time'>{{time}}</div>
+    </div>
+  </div>
+  <div class="video-list" [@toggle]="show ? 'up' : 'down'">
+    <div class="ctrl-bar">
+      <i class="fa fa-search"></i>
+      <i class="fa fa-chevron-down" (click)="show = !show"></i>
+      <i class="fa fa-cogs"></i>
+    </div>
+    <ul class="nav nav-tabs" id="video-tab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="promotion-tab" data-toggle="tab" href="#promotion" role="tab" aria-controls="promotion"
+          aria-selected="true">為你推薦</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+          aria-selected="false">追蹤中</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact"
+          aria-selected="false">熱門</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="z-tab" data-toggle="tab" href="#z" role="tab" aria-controls="z" aria-selected="false">紀錄</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane fade show active" id="promotion" role="tabpanel" aria-labelledby="promotion-tab">
+        <div id="video-item-card">
+          <span id="video-duration-time">3:24</span>
+          <div id="author-info">
+            <small id="promotion-tag">推薦</small><br>
+            <small id="video-title">風景側錄</small>
+            <div id="author"><img src="/assets/001ec949fb1b193cb2a747.jpg" /><span>Hung-tzu-chen</span></div>
+          </div>
+          <img src="/assets/001ec949fb1b193cb2a747.jpg" />
+        </div>
+        <div id="video-item-card">
+          <span id="video-duration-time">11:24</span>
+          <div id="author-info">
+            <small id="promotion-tag">推薦</small><br>
+            <small id="video-title">測試用</small>
+            <div id="author"><img src="/assets/001ec949fb1b193cb2a747.jpg" /><span>Hung-tzu-chen</span></div>
+          </div>
+          <img src="/assets/3f2c00041451cbefab88.jpeg" />
+        </div>
+        <div id="video-item-card">
+          <span id="video-duration-time">4:24</span>
+          <div id="author-info">
+            <small id="promotion-tag">推薦</small><br>
+            <small id="video-title">試試看喔</small>
+            <div id="author"><img src="/assets/001ec949fb1b193cb2a747.jpg" /><span>Hung-tzu-chen</span></div>
+          </div>
+          <img src="/assets/15291520K-1.jpg" />
+        </div>
+        <div id="video-item-card">
+          <span id="video-duration-time">6:32</span>
+          <div id="author-info">
+            <small id="promotion-tag">推薦</small><br>
+            <small id="video-title">風景照片</small>
+            <div id="author"><img src="/assets/001ec949fb1b193cb2a747.jpg" /><span>Hung-tzu-chen</span></div>
+          </div>
+          <img src="/assets/478617259_5d2de5b9ab.jpg" />
+        </div>
+      </div>
+      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">...</div>
+      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="z-tab">...</div>
+    </div>
+
+  </div>
+
+</div>
