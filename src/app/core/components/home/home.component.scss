@@ -1,0 +1,178 @@
+.home-container {
+    .navbar-top {
+        border-bottom: 1px solid lightgray;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 999;
+    }
+    .title-group {
+        width: 100vw;
+        text-align: center;
+        i {
+            line-height: 2.5rem;
+            padding: 0px 10px 0px 10px;
+            font-size: 20px;
+        }
+        .left {
+            position: absolute;
+            left: 1rem;
+        }
+        .right {
+            position: absolute;
+            right: 1rem;
+        }
+        #logo {
+            height: 2.5rem;
+        }
+    }
+    .live-group {
+        margin-top: 60px;
+        width: 100vw;
+        max-width: 100vw;
+        overflow-x: scroll;
+        height: 100px;
+        display: -webkit-inline-box;
+        border-bottom: 1px solid lightgray;
+        .user-info {
+            height: 60px;
+            width: 60px;
+            margin: 10px;
+            position: relative;
+            .has-life {
+                position: absolute;
+                height: 66px;
+                width: 66px;
+                border-radius: 35px;
+                left: -3px;
+                top: -3px;
+                background: linear-gradient(35deg , orange, purple);
+            }
+            .user-circle {        
+                height: 60px;
+                width: 60px;
+                overflow: hidden;
+                border-radius: 30px;
+                position: absolute;
+                border: 2px solid white;
+                img {
+                    width: 60px;
+                }
+            }
+            .user-name {
+                white-space: nowrap;
+                width: 60px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                position: absolute;
+                top: 60px;
+               
+            }
+        }
+    }
+    .card-list{
+        .card {
+            border : none;
+            .card-img-top{
+                border-radius: 0px;
+            }
+        }
+        .card-ctrl{
+            .right{
+                float: right;
+                font-size: 20px;
+            }
+            .left{
+                float: left;
+                font-size: 14px;
+                font-size: 20px;
+                i{
+                    margin: 0 5px 0 10px;
+                }
+            }
+        }
+        .card-body{
+
+padding: .5rem;
+        }
+        .video-author {
+            width: 100%;
+            z-index: 99;
+            #author{
+                display: inline-flex;
+            }
+    
+            img {
+                width: 30px;
+                height: 30px;
+                border-radius: 30px;
+                margin: 5px 10px 10px 10px;
+            }
+            #author-name{
+                font-family: sans-serif;
+                color: #003377;
+                font-weight: 600;
+                font-size: 14px;
+                margin: 0;
+            }
+            #post-location{       
+                font-size: 12px;
+                margin: 0;
+            }
+            .edit{
+                float: right;
+                margin-right: 10px;
+                font-size: 14px;
+                line-height: 30px;
+            }
+            
+            
+        }
+        @mixin transition {
+            @for $i from  1 through 100 {
+              &:nth-child(#{$i}):not(:first-child) {
+                  left : #{$i * 10}px;       
+              }
+            }
+        }
+        .video-favorite{
+            width: 100vw;
+            display: inline-flex;
+            #favorite-users{
+             margin-left: 50px;   
+             #represent-user , #other-count{
+                color: #003377;
+                font-weight: 600;
+             }
+            
+            }
+            #favorite{
+                width: 20px;
+                height: 20px;
+                border-radius: 20px;
+                border : 2px solid white;
+                overflow: hidden;
+                position: absolute;
+                @include transition;
+                img{
+                    width: 20px;
+                }
+            }
+            
+        
+        }
+        .poster{
+            #post-user{
+                color: #003377;
+                font-weight: 600;
+            }
+        }
+        .misc{
+            #date{
+                color: lightgray;
+                font-size: 10px;
+            }
+        }
+    }
+    
+}
