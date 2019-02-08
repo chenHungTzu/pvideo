@@ -1,9 +1,9 @@
 <div classs="video-container">
-  <div class="video-description" [@fadeInOut]="desc ? 'in' : 'out'">
+  <div class="video-description" [@fadeInOut]="displayDesc ? 'in' : 'out'">
     <hr>
-    <div class="content" [@fadeInOut]="desc ? 'long' : 'short'">
+    <div class="content" [@fadeInOut]="displayDesc ? 'long' : 'short'">
       我們在寫網站一定會使用到Session
-      今天就跟大家分享自製微型 Asp.net Session
+      今天就跟大家分享自製微型 Asp.net Session 
       分析Session->實作Session->使用Session
 
       在實作之前您必須先了解甚麼是Session
@@ -13,18 +13,18 @@
   </div>
   <div class="video-author">
     <div id="author">
-      <i class="fa fa-times cancel"></i>
+      <i class="fa fa-times cancel" [routerLink]="['/home']"></i>
       <div id="video-title">
-        <span>測試用影片喔</span><i class="fa fa-chevron-{{desc ? 'up' : 'down'}}" (click)="desc = !desc"></i>
+        <span>測試用影片喔</span><i class="fa fa-chevron-{{displayDesc ? 'up' : 'down'}}" (click)="displayDesc = !displayDesc"></i>
       </div>
       <img src="/assets/001ec949fb1b193cb2a747.jpg" /><span>chenHungTzu003912</span>
     </div>
   </div>
   <video class="rtc-player" [hidden]="!rtcm" #rtc autoplay loop></video>
-  <video class="video-player" [hidden]="rtcm" #video autoplay loop>
+  <video class="video-player" [hidden]="rtcm" #video autoplay loop playsinline>
     <source src="https://amd-ssl.cdn.turner.com/cnn/big/ads/2018/11/13/22LKFS_ICONSIAM_30SEC_Eng_1280x720.mp4" type="video/mp4">
   </video>
-  <div class="video-social" [hidden]='list'>
+  <div class="video-social" [hidden]='displaylist'>
     <div class='social-summary'>
       224,261個觀看次數 122個留言
     </div>
@@ -33,7 +33,7 @@
       <i class="fa fa-comments isolute"></i>
       <i class="fa fa-reply isolute"></i>
       <i class="fa fa-ellipsis-h isolute"></i>
-      <button class='btn btn-search btn-sm' (click)="list = !list"><i class="fa fa-angle-up" aria-hidden="true"></i>瀏覽</button>
+      <button class='btn btn-search btn-sm' (click)="displaylist = !displaylist"><i class="fa fa-angle-up" aria-hidden="true"></i>瀏覽</button>
     </div>
     <div class='video-ctrl'>
 
@@ -48,10 +48,10 @@
       <div class='time'>{{time}}</div>
     </div>
   </div>
-  <div class="video-list" [@toggle]="list ? 'up' : 'down'">
+  <div class="video-list" [@toggle]="displaylist ? 'up' : 'down'">
     <div class="ctrl-bar">
       <i class="fa fa-search"></i>
-      <i class="fa fa-chevron-down" (click)="list = !list"></i>
+      <i class="fa fa-chevron-down" (click)="displaylist = !displaylist"></i>
       <i class="fa fa-cogs"></i>
     </div>
     <ul class="nav nav-tabs" id="video-tab" role="tablist">

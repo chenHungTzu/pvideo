@@ -1,0 +1,122 @@
+
+.add-on {
+    width: 95vw; 
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    input{
+        background-color: lightgray;
+        border-radius: 10px;
+        text-align: center;
+    }
+    .input-group-btn{
+        position: absolute;
+        left: -60px;
+        right: 0;
+        text-align: center;
+        line-height: 37px;
+        color: gray;
+        font-size: 16px;
+    }
+  }
+
+.grid-container {
+    height: calc(100vh - 130px);
+    .classified-list{
+        width: 100vw;
+        max-width: 100vw;
+        overflow-x: scroll;    
+        height: 11vh;
+        display: -webkit-inline-box;      
+        #classified{
+            margin: 5px;
+            position: relative;
+            width: 30vw;
+            height: 10vh;
+            img {
+                width: 30vw;
+                height: 10vh;
+                border-radius: 10px;
+                position: absolute;
+            }
+            #classified-name{
+                position: absolute;
+                color: white;
+                font-size: 12px;
+                left: 0;
+                right: 0;
+                bottom: 10px;
+                text-align: center;
+            }
+        }
+    }
+    
+    .left-s-1 {
+        grid-area: lefts1;
+    }
+    .left-s-2 {
+        grid-area: lefts2;
+    }
+    .left-b {
+        grid-area: leftb;
+    }
+    .right-s-1 {
+        grid-area: rights1;
+    }
+    .right-s-2 {
+        grid-area: rights2;
+    }
+    .right-b {
+        grid-area: rightb;
+    }
+    .tcommon1 {
+        grid-area: tc1;
+    }
+    .tcommon2 {
+        grid-area: tc2;
+    }
+    .tcommon3 {
+        grid-area: tc3;
+    }
+    .tcommon4 {
+        grid-area: tc4;
+    }
+    .tcommon5 {
+        grid-area: tc5;
+    }
+    .tcommon6 {
+        grid-area: tc6;
+    }
+    .bcommon1 {
+        grid-area: bc1;
+    }
+    .bcommon2 {
+        grid-area: bc2;
+    }
+    .bcommon3 {
+        grid-area: bc3;
+    }
+    .bcommon4 {
+        grid-area: bc4;
+    }
+    .bcommon5 {
+        grid-area: bc5;
+    }
+    .bcommon6 {
+        grid-area: bc6;
+    }
+    .grid-list {
+        height: calc(100vh - 220px);
+        overflow-y: scroll;
+        .img-grid {
+            display: grid;
+            grid-template-rows: repeat(8, calc(100vh / 8));
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-areas: "lefts1 leftb leftb " "lefts2 leftb leftb " "tc1 tc2 tc3" "tc4 tc5 tc6" "rightb rightb rights1 " "rightb rightb rights2 " "bc1 bc2 bc3" "bc4 bc5 bc6";      
+            img {
+                height: 100%
+
+            }
+        }
+    }
+}

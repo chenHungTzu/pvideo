@@ -53,12 +53,12 @@ export class VideoMainComponent implements OnInit, AfterViewInit {
   @ViewChild('rtc')      rtcv: ElementRef;
   @ViewChild('progress') progress: ElementRef;
 
-  clients        = [];     // user's list
-  rtcm : boolean = false;  // is rtc mode
-  socket: any;             // ws server
-  desc: boolean  = false;  // is show description's block
-  list: boolean  = false;  // is show list's block
-  time: string   = '';     // video time display
+  clients        = [];            // user's list
+  rtcm : boolean = false;         // is rtc mode
+  socket: any;                    // ws server
+  displayDesc: boolean  = false;  // is show description's block
+  displaylist: boolean  = true;   // is show list's block
+  time: string   = '';            // video time display
 
 
   lpc: RTCPeerConnection;    // p2p end point (local)
@@ -82,7 +82,7 @@ export class VideoMainComponent implements OnInit, AfterViewInit {
     //this.preparepc();
   }
   ngAfterViewInit(): void {
-    //this.eventBinding();
+    this.eventBinding();
   }
   eventUnBind(){ 
     $(".progress-bar > div").draggable('disable');
